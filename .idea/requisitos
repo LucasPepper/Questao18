@@ -1,0 +1,14 @@
+Uma loja possui um cadastro de clientes formado por nome e CPF.
+
+Essa loja faz vendas por 3 meios de pagamento: no dinheiro a vista, no cartão e nota promissória (“colocar na
+conta”).
+
+As vendas por dinheiro a vista e cartão podem ser realizadas para clientes não cadastrados,
+mas, as vendas por nota promissória somente é feita para clientes cadastrados.
+
+A loja deseja gerenciar os pagamentos das notas promissórias. Nesta loja não é permitida a
+venda por nota promissória para clientes que tenham nota promissória aberta há mais de um
+mês.
+
+A loja também não faz vendas por nota promissória para clientes que estejam com o
+CPF na lista de mal pagadores do SPC Serasa.
