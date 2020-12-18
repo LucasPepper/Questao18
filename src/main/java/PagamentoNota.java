@@ -14,18 +14,13 @@ public class PagamentoNota extends Pagamento{
         this.cliente = cliente;
     }
 
-    public boolean verificaValidadeNotaMenorQueUmMes(){
-        this.data.get(Calendar.YEAR);
-        this.data.get(Calendar.MONTH);
-        this.data.get(Calendar.DAY_OF_MONTH);
+    public boolean verificaValidadeNotaMenorQueUmMes(PagamentoNota nota){
+        Calendar dataAtual = Calendar.getInstance();
+        
+        long dataNota = nota.getData().getTimeInMillis();
+        long dataAtualMili = dataAtual.getTimeInMillis();
 
-        long dataNota = this.data.getTimeInMillis();
-        Calendar dataAgora = new GregorianCalendar();
-        long dataAgoraMilli = dataAgora.getTimeInMillis();
-
-        long diferencaSegundos = dataAgora.getTimeInMillis() - dataNota;
-
-        long milisegundosEmUmMes = (long) 2629800000.00;
+        long diferencaSegundos = dataAtualMili - dataNota;
 
         // Se diferencaSegundos <= Mes: Válido
         return diferencaSegundos <= MILISSEGUNDOS_MES;

@@ -10,4 +10,13 @@ public class Pagamento {
         this.valor = valor;
         this.data = data;
     }
+
+    public Calendar getData() {
+        return data;
+    }
+
+    public void setData(Calendar data) {
+        this.data = data;
+    }
+    
 }
