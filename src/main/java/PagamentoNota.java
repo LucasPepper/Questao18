@@ -4,18 +4,17 @@ import java.util.GregorianCalendar;
 
 public class PagamentoNota extends Pagamento{
 
+    private static final long MILISSEGUNDOS_MES = 2629800000L;
+
     private String status;
     private Cliente cliente;
 
     public PagamentoNota(double valor, Calendar data, Cliente cliente) {
         super(valor, data);
         this.cliente = cliente;
-        verificaVencimentoNotasCliente();
     }
 
-
-
-    public boolean verificaVencimentoNotasCliente(){
+    public boolean verificaValidadeNotaMenorQueUmMes(){
         this.data.get(Calendar.YEAR);
         this.data.get(Calendar.MONTH);
         this.data.get(Calendar.DAY_OF_MONTH);
@@ -26,11 +25,10 @@ public class PagamentoNota extends Pagamento{
 
         long diferencaSegundos = dataAgora.getTimeInMillis() - dataNota;
 
-        if (diferencaSegundos > MES){
-            return false;
-        }
+        long milisegundosEmUmMes = (long) 2629800000.00;
 
-        return true;
+        // Se diferencaSegundos <= Mes: Válido
+        return diferencaSegundos <= MILISSEGUNDOS_MES;
     }
     
 }

@@ -15,8 +15,6 @@ public class Main {
         adicionarClientesSPC();
         adicionarNotasClientes();
 
-        verificaClienteSPC()
-
     }
 
     private static void adicionarClientesNoCadastroSistema() {
