@@ -10,16 +10,27 @@ public class PagamentoNota extends Pagamento{
     public PagamentoNota(double valor, Calendar data, Cliente cliente) {
         super(valor, data);
         this.cliente = cliente;
+        verificaVencimentoNotasCliente();
     }
+
+
 
     public boolean verificaVencimentoNotasCliente(){
         this.data.get(Calendar.YEAR);
         this.data.get(Calendar.MONTH);
         this.data.get(Calendar.DAY_OF_MONTH);
 
+        long dataNota = this.data.getTimeInMillis();
+        Calendar dataAgora = new GregorianCalendar();
+        long dataAgoraMilli = dataAgora.getTimeInMillis();
 
+        long diferencaSegundos = dataAgora.getTimeInMillis() - dataNota;
 
-        return false;
+        if (diferencaSegundos > MES){
+            return false;
+        }
+
+        return true;
     }
     
 }

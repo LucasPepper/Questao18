@@ -7,13 +7,33 @@ import java.util.GregorianCalendar;
 public class Main {
 
     private static ArrayList<Cliente> listaSPC = new ArrayList<>();
+    private static ArrayList<Cliente> listaClientesRegistrados = new ArrayList<>();
 
     public static void main(String[] args) {
 
+        adicionarClientesNoCadastroSistema();
         adicionarClientesSPC();
         adicionarNotasClientes();
 
+        verificaClienteSPC()
+
     }
+
+    private static void adicionarClientesNoCadastroSistema() {
+        Cliente cliente1 = new Cliente("Alex", "111.111.111-11");
+        Cliente cliente2 = new Cliente("Max", "222.222.222-22");
+
+    }
+
+    public boolean verificaClienteSPC(Cliente cliente) {
+        for (Cliente cliente1 : listaSPC){
+            if (listaSPC.contains(cliente1)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     private static void adicionarNotasClientes() {
 
